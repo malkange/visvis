@@ -1,0 +1,79 @@
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+Validation per class PQ, SQ, RQ, IoU, P, R (Cam): 
+                 car :  90.75%   93.84%   96.71%   91.72%   97.32%   96.10%
+             bicycle :  32.59%   76.82%   42.42%   38.42%   73.68%   29.79%
+          motorcycle :  28.40%   87.58%   32.43%   39.10%   35.29%   30.00%
+               truck :  30.35%   82.37%   36.84%   21.20%   38.89%   35.00%
+                 bus :  39.84%   88.91%   44.81%   48.24%   40.59%   50.00%
+              person :  63.14%   91.36%   69.11%   70.37%   84.62%   58.41%
+           bicyclist :  79.88%   96.02%   83.19%   86.80%   87.04%   79.66%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%    0.00%    0.00%
+                road :  91.14%   92.72%   98.29%   91.89%   98.29%   98.29%
+             parking :  11.97%   68.33%   17.53%   28.05%   17.17%   17.89%
+            sidewalk :  63.93%   79.83%   80.08%   70.04%   79.14%   81.04%
+        other-ground :   2.02%   66.67%    3.03%    0.29%    4.55%    2.27%
+            building :  75.56%   88.78%   85.11%   85.05%   84.92%   85.30%
+               fence :  26.08%   72.34%   36.05%   56.99%   29.93%   45.30%
+          vegetation :  76.77%   83.42%   92.03%   80.72%   92.03%   92.03%
+               trunk :  50.76%   77.88%   65.17%   65.11%   67.99%   62.58%
+             terrain :  28.97%   71.94%   40.27%   53.78%   40.23%   40.32%
+                pole :  64.14%   80.22%   79.95%   66.99%   80.65%   79.26%
+        traffic-sign :  70.20%   84.63%   82.95%   48.76%   85.71%   80.36%
+PQ 48.8  PQ_dagger  64.8  SQ 78.1  RQ 57.2  |  PQ_th 45.6  SQ_th 77.1  RQ_th 50.7  |  PQ_st 51.0  SQ_st 78.8  RQ_st 61.9  |  mIoU 54.9
+Current val PQ is 48.8 while the best val PQ is 48.8
+Current val miou is 54.9
+Validation per class PQ, SQ, RQ, IoU, P, R (None): 
+                 car :  88.72%   93.79%   94.58%   92.39%   93.92%   95.25%
+             bicycle :  19.07%   77.16%   24.71%   18.04%   53.33%   16.08%
+          motorcycle :  25.79%   88.77%   29.05%   26.27%   27.08%   31.33%
+               truck :  57.88%   90.04%   64.29%   61.05%   50.00%   90.00%
+                 bus :  30.18%   93.43%   32.30%   28.47%   30.83%   33.91%
+              person :  53.11%   90.64%   58.59%   48.49%   82.87%   45.32%
+           bicyclist :  75.15%   91.63%   82.01%   71.70%   85.07%   79.17%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%    0.00%    0.00%
+                road :  84.73%   88.25%   96.02%   86.36%   96.02%   96.02%
+             parking :  13.63%   67.67%   20.14%   42.25%   15.49%   28.76%
+            sidewalk :  68.45%   78.30%   87.43%   73.60%   87.10%   87.76%
+        other-ground :   0.00%    0.00%    0.00%    1.35%    0.00%    0.00%
+            building :  83.05%   88.41%   93.94%   85.83%   93.85%   94.03%
+               fence :  21.67%   67.25%   32.22%   51.83%   30.29%   34.42%
+          vegetation :  77.29%   83.47%   92.60%   79.88%   92.60%   92.60%
+               trunk :  42.53%   71.16%   59.76%   60.28%   58.56%   61.01%
+             terrain :  36.29%   71.13%   51.02%   55.16%   50.48%   51.57%
+                pole :  52.82%   75.42%   70.03%   59.84%   70.38%   69.69%
+        traffic-sign :  49.61%   77.10%   64.34%   48.54%   65.06%   63.64%
+PQ 46.3  PQ_dagger  58.8  SQ 73.3  RQ 55.4  |  PQ_th 43.7  SQ_th 78.2  RQ_th 48.2  |  PQ_st 48.2  SQ_st 69.8  RQ_st 60.7  |  mIoU 52.2
+Current val PQ is 46.3 while the best val PQ is 48.8
+Current val miou is 52.2
+epoch 1 iter   447, avg_loss: 1.0, semantic loss: 0.6, center loss: 0.2, offset loss: 0.1, instmap loss: 0.1, pix loss: nan
+
+Validation per class iou: 
+car : 92.24%
+bicycle : 22.78%
+motorcycle : 25.05%
+truck : 28.13%
+bus : 27.03%
+person : 59.59%
+bicyclist : 73.77%
+motorcyclist : 4.77%
+road : 87.47%
+parking : 41.17%
+sidewalk : 73.35%
+other-ground : 1.23%
+building : 86.52%
+fence : 53.94%
+vegetation : 80.31%
+trunk : 63.21%
+terrain : 55.18%
+pole : 62.64%
+traffic-sign : 58.32%
+Current val miou is 52.5

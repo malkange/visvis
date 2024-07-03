@@ -1,0 +1,28 @@
+dataset:
+    name: SemanticKitti
+    version: null
+    path: /home/data/SemanticKitti
+    # path: ../data/SemanticKitti
+    rotate_aug: True
+    flip_aug: True
+    max_volume_space: [ 50, 3.1415926, 3 ]
+    min_volume_space: [ 0, -3.1415926, -5 ]
+    gt_generator:
+        sigma: 5
+    grid_size: [480,360,32]
+    num_worker: 12
+    # num_worker: 2
+    min_points: 15
+    # min_points: 50
+model:
+    pix_fusion: True
+    pix_fusion_path: ../checkpoints/resnet18-5c106cde.pth
+    use_sara: True
+    use_att: False
+    model_load_path: /home/poscoict/Desktop/samseg_new-main/kitti_ckpts/kitti_late_pixseg_2backbone_119epoch.pt
+    # model_load_path: ./kitti_61.6pq.pt
+    val_batch_size: 4
+    post_proc:
+        threshold: 0.1
+        nms_kernel: 5
+        top_k: 100

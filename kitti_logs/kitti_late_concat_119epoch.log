@@ -1,0 +1,457 @@
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+Validation per class PQ, SQ, RQ, IoU, P, R (Cam): 
+                 car :  91.11%   93.82%   97.11%   89.91%   96.62%   97.61%
+             bicycle :  28.95%   78.42%   36.92%   26.89%   66.67%   25.53%
+          motorcycle :  38.40%   84.01%   45.71%   53.75%   57.14%   38.10%
+               truck :  72.19%   90.24%   80.00%   75.69%   80.00%   80.00%
+                 bus :  37.17%   84.60%   43.94%   15.77%   58.00%   35.37%
+              person :  64.09%   89.64%   71.50%   70.98%   79.57%   64.91%
+           bicyclist :  76.50%   94.22%   81.19%   77.36%   97.62%   69.49%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%    0.00%    0.00%
+                road :  93.09%   94.16%   98.86%   93.82%   98.86%   98.86%
+             parking :  13.55%   68.74%   19.72%   37.71%   14.81%   29.47%
+            sidewalk :  63.59%   78.64%   80.86%   71.91%   79.54%   82.24%
+        other-ground :   0.63%   51.61%    1.23%    0.66%    0.83%    2.33%
+            building :  77.00%   87.81%   87.68%   85.60%   89.20%   86.22%
+               fence :  27.33%   72.01%   37.95%   60.88%   33.00%   44.63%
+          vegetation :  81.28%   84.82%   95.83%   86.24%   95.83%   95.83%
+               trunk :  50.69%   76.60%   66.18%   64.23%   72.62%   60.80%
+             terrain :  35.10%   74.38%   47.19%   69.02%   47.47%   46.92%
+                pole :  66.30%   79.19%   83.73%   66.03%   81.97%   85.57%
+        traffic-sign :  67.43%   82.64%   81.59%   48.18%   83.67%   79.61%
+PQ 51.8  PQ_dagger  66.3  SQ 77.1  RQ 60.9  |  PQ_th 51.1  SQ_th 76.9  RQ_th 57.0  |  PQ_st 52.4  SQ_st 77.3  RQ_st 63.7  |  mIoU 57.6
+Current val PQ is 51.8 while the best val PQ is 51.8
+Current val miou is 57.6
+Validation per class PQ, SQ, RQ, IoU, P, R (None): 
+                 car :  88.98%   93.80%   94.86%   93.30%   94.61%   95.12%
+             bicycle :  18.97%   74.86%   25.34%   29.54%   40.22%   18.50%
+          motorcycle :  39.40%   88.32%   44.62%   43.17%   63.04%   34.52%
+               truck :  45.39%   91.98%   49.35%   45.82%   33.33%   95.00%
+                 bus :  23.50%   87.26%   26.94%   12.21%   59.70%   17.39%
+              person :  46.90%   89.40%   52.46%   40.10%   79.01%   39.26%
+           bicyclist :  66.22%   93.54%   70.80%   46.14%   95.24%   56.34%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%    0.00%    0.00%
+                road :  84.78%   88.82%   95.45%   87.52%   95.45%   95.45%
+             parking :  11.43%   66.33%   17.24%   44.13%   11.88%   31.37%
+            sidewalk :  68.11%   77.90%   87.43%   73.65%   87.10%   87.76%
+        other-ground :   0.00%    0.00%    0.00%    0.83%    0.00%    0.00%
+            building :  82.94%   87.47%   94.82%   85.89%   94.46%   95.18%
+               fence :  24.47%   67.83%   36.07%   54.42%   33.90%   38.53%
+          vegetation :  81.63%   84.02%   97.15%   83.52%   97.15%   97.15%
+               trunk :  39.69%   72.54%   54.71%   60.67%   58.02%   51.76%
+             terrain :  44.02%   71.58%   61.49%   64.75%   60.84%   62.16%
+                pole :  55.98%   74.45%   75.20%   64.71%   74.47%   75.94%
+        traffic-sign :  51.14%   77.30%   66.16%   50.95%   68.24%   64.21%
+PQ 46.0  PQ_dagger  57.8  SQ 73.0  RQ 55.3  |  PQ_th 41.2  SQ_th 77.4  RQ_th 45.5  |  PQ_st 49.5  SQ_st 69.8  RQ_st 62.3  |  mIoU 51.6
+Current val PQ is 46.0 while the best val PQ is 51.8
+Current val miou is 51.6
+epoch 1 iter   447, avg_loss: 1.0, semantic loss: 0.6, center loss: 0.2, offset loss: 0.1, instmap loss: 0.1, pix loss: nan
+
+Validation per class iou: 
+car : 93.27%
+bicycle : 33.38%
+motorcycle : 39.03%
+truck : 35.12%
+bus : 16.45%
+person : 47.92%
+bicyclist : 56.08%
+motorcyclist : 0.00%
+road : 88.80%
+parking : 43.59%
+sidewalk : 73.56%
+other-ground : 0.81%
+building : 86.69%
+fence : 58.34%
+vegetation : 84.02%
+trunk : 62.92%
+terrain : 65.14%
+pole : 66.00%
+traffic-sign : 61.95%
+Current val miou is 53.3
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 1, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+Validation per class PQ, SQ, RQ and IoU: 
+                 car :  87.27%   92.81%   94.03%   91.09%
+             bicycle :  22.67%   72.25%   31.37%   28.64%
+          motorcycle :  17.52%   78.28%   22.39%   25.20%
+               truck :  37.67%   92.45%   40.74%   70.91%
+                 bus :  22.06%   84.48%   26.11%   15.69%
+              person :  43.59%   88.05%   49.51%   36.63%
+           bicyclist :  74.12%   93.08%   79.63%   75.89%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%
+                road :  77.19%   89.80%   85.96%   83.50%
+             parking :   2.85%   57.37%    4.97%   24.42%
+            sidewalk :  61.93%   77.63%   79.77%   68.25%
+        other-ground :   0.00%    0.00%    0.00%    0.20%
+            building :  81.19%   86.95%   93.37%   84.60%
+               fence :  20.08%   64.85%   30.97%   48.70%
+          vegetation :  81.02%   82.91%   97.72%   82.79%
+               trunk :  44.71%   72.52%   61.65%   64.44%
+             terrain :  40.38%   70.30%   57.44%   63.98%
+                pole :  56.73%   73.81%   76.86%   64.95%
+        traffic-sign :  43.89%   77.29%   56.79%   44.83%
+PQ 42.9  PQ_dagger  55.7  SQ 71.3  RQ 52.1  |  PQ_th 38.1  SQ_th 75.2  RQ_th 43.0  |  PQ_st 46.4  SQ_st 68.5  RQ_st 58.7  |  mIoU 51.3
+Current val PQ is 42.9 while the best val PQ is 42.9
+Current val miou is 51.3
+epoch 1 iter   447, avg_loss: 1.1, semantic loss: 0.6, center loss: 0.2, offset loss: 0.1, instmap loss: 0.1, pix loss: nan
+
+Validation per class iou: 
+car : 93.21%
+bicycle : 37.11%
+motorcycle : 30.84%
+truck : 50.36%
+bus : 24.70%
+person : 50.74%
+bicyclist : 67.31%
+motorcyclist : 0.00%
+road : 83.53%
+parking : 24.44%
+sidewalk : 68.37%
+other-ground : 0.20%
+building : 85.67%
+fence : 54.35%
+vegetation : 83.10%
+trunk : 65.01%
+terrain : 64.09%
+pole : 66.28%
+traffic-sign : 55.17%
+Current val miou is 52.9
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+Validation per class PQ, SQ, RQ and IoU: 
+                 car :  89.00%   93.30%   95.39%   95.03%
+             bicycle :  22.22%   74.66%   29.76%   37.45%
+          motorcycle :  31.34%   84.73%   36.99%   38.89%
+               truck :  44.61%   90.81%   49.12%   54.27%
+                 bus :  35.34%   85.97%   41.10%   44.42%
+              person :  49.75%   87.74%   56.70%   47.29%
+           bicyclist :  74.34%   92.51%   80.36%   83.07%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%
+                road :  91.14%   91.82%   99.26%   91.49%
+             parking :  10.45%   62.47%   16.73%   38.97%
+            sidewalk :  72.95%   79.39%   91.89%   76.64%
+        other-ground :   0.00%    0.00%    0.00%    0.41%
+            building :  85.54%   88.58%   96.56%   88.70%
+               fence :  12.61%   65.33%   19.30%   40.04%
+          vegetation :  78.01%   83.55%   93.37%   81.64%
+               trunk :  49.30%   73.20%   67.35%   68.49%
+             terrain :  37.77%   70.00%   53.96%   58.57%
+                pole :  55.54%   73.66%   75.40%   63.29%
+        traffic-sign :  44.13%   74.36%   59.34%   44.57%
+PQ 46.5  PQ_dagger  58.4  SQ 72.2  RQ 55.9  |  PQ_th 43.3  SQ_th 76.2  RQ_th 48.7  |  PQ_st 48.9  SQ_st 69.3  RQ_st 61.2  |  mIoU 55.4
+Current val PQ is 46.5 while the best val PQ is 46.5
+Current val miou is 55.4
+epoch 1 iter   447, avg_loss: 1.1, semantic loss: 0.6, center loss: 0.2, offset loss: 0.1, instmap loss: 0.1, pix loss: nan
+
+Validation per class iou: 
+car : 94.99%
+bicycle : 40.20%
+motorcycle : 40.06%
+truck : 43.01%
+bus : 36.77%
+person : 56.51%
+bicyclist : 75.63%
+motorcyclist : 0.00%
+road : 91.51%
+parking : 39.00%
+sidewalk : 76.73%
+other-ground : 0.41%
+building : 89.14%
+fence : 44.89%
+vegetation : 81.79%
+trunk : 68.98%
+terrain : 58.64%
+pole : 64.74%
+traffic-sign : 57.37%
+Current val miou is 55.8
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 2, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+epoch: 1   lr: 0.00400
+
+Validation per class PQ, SQ, RQ and IoU: 
+                 car :  87.87%   92.98%   94.51%   90.59%
+             bicycle :  33.09%   74.27%   44.55%   38.66%
+          motorcycle :  24.43%   85.50%   28.57%   23.48%
+               truck :  44.53%   91.40%   48.72%   73.16%
+                 bus :  21.99%   89.62%   24.54%   30.25%
+              person :  31.72%   85.15%   37.25%   27.58%
+           bicyclist :  58.19%   89.93%   64.71%   54.20%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%
+                road :  89.79%   90.68%   99.02%   90.07%
+             parking :   8.65%   64.08%   13.50%   39.01%
+            sidewalk :  68.70%   77.67%   88.45%   72.49%
+        other-ground :   0.00%    0.00%    0.00%    0.59%
+            building :  74.84%   82.10%   91.15%   77.64%
+               fence :   9.86%   64.09%   15.38%   36.91%
+          vegetation :  80.93%   83.39%   97.05%   83.18%
+               trunk :  41.14%   72.52%   56.73%   60.76%
+             terrain :  44.71%   70.02%   63.86%   63.62%
+                pole :  56.50%   72.32%   78.12%   63.52%
+        traffic-sign :  43.53%   74.30%   58.58%   43.49%
+PQ 43.2  PQ_dagger  55.4  SQ 71.6  RQ 52.9  |  PQ_th 37.7  SQ_th 76.1  RQ_th 42.9  |  PQ_st 47.2  SQ_st 68.3  RQ_st 60.2  |  mIoU 51.0
+Current val PQ is 43.2 while the best val PQ is 43.2
+Current val miou is 51.0
+epoch 1 iter   447, avg_loss: 1.1, semantic loss: 0.6, center loss: 0.2, offset loss: 0.1, instmap loss: 0.1, pix loss: nan
+
+Validation per class iou: 
+car : 93.07%
+bicycle : 37.78%
+motorcycle : 22.42%
+truck : 53.10%
+bus : 32.40%
+person : 47.06%
+bicyclist : 54.74%
+motorcyclist : 0.00%
+road : 90.10%
+parking : 39.04%
+sidewalk : 72.69%
+other-ground : 0.60%
+building : 80.96%
+fence : 41.38%
+vegetation : 83.95%
+trunk : 66.59%
+terrain : 63.86%
+pole : 67.31%
+traffic-sign : 61.71%
+Current val miou is 53.1
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+Validation per class PQ, SQ, RQ and IoU: 
+                 car :  88.08%   93.06%   94.65%   91.33%
+             bicycle :  31.38%   74.16%   42.32%   42.29%
+          motorcycle :  27.98%   88.08%   31.77%   21.98%
+               truck :  47.85%   91.78%   52.14%   62.64%
+                 bus :  24.01%   89.58%   26.81%   25.95%
+              person :  32.58%   86.90%   37.49%   27.37%
+           bicyclist :  56.11%   91.23%   61.50%   53.44%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%
+                road :  89.39%   90.87%   98.38%   90.07%
+             parking :   9.09%   64.59%   14.07%   39.49%
+            sidewalk :  68.42%   77.85%   87.89%   72.60%
+        other-ground :   0.00%    0.00%    0.00%    0.63%
+            building :  74.37%   82.90%   89.71%   77.65%
+               fence :   9.79%   64.56%   15.16%   36.70%
+          vegetation :  80.83%   83.39%   96.93%   83.14%
+               trunk :  40.30%   72.29%   55.74%   59.78%
+             terrain :  44.61%   70.01%   63.72%   63.55%
+                pole :  55.29%   72.08%   76.70%   62.44%
+        traffic-sign :  43.39%   74.56%   58.19%   42.78%
+PQ 43.3  PQ_dagger  55.8  SQ 72.0  RQ 52.8  |  PQ_th 38.5  SQ_th 76.8  RQ_th 43.3  |  PQ_st 46.9  SQ_st 68.5  RQ_st 59.7  |  mIoU 50.2
+Current val PQ is 43.3 while the best val PQ is 43.3
+Current val miou is 50.2
+Validation per class iou: 
+car : 92.92%
+bicycle : 41.41%
+motorcycle : 24.84%
+truck : 47.79%
+bus : 27.84%
+person : 50.33%
+bicyclist : 53.27%
+motorcyclist : 0.00%
+road : 90.11%
+parking : 39.52%
+sidewalk : 72.79%
+other-ground : 0.64%
+building : 80.83%
+fence : 41.18%
+vegetation : 83.91%
+trunk : 65.75%
+terrain : 63.78%
+pole : 66.38%
+traffic-sign : 60.81%
+Current val miou is 52.8
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+Validation per class PQ, SQ, RQ and IoU: 
+                 car :  88.03%   93.02%   94.63%   91.34%
+             bicycle :  31.56%   73.85%   42.74%   42.43%
+          motorcycle :  27.31%   87.65%   31.15%   21.87%
+               truck :  47.73%   91.79%   51.99%   61.95%
+                 bus :  23.44%   89.22%   26.28%   25.81%
+              person :  31.35%   86.74%   36.15%   26.66%
+           bicyclist :  56.60%   91.53%   61.83%   53.95%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%
+                road :  88.93%   90.58%   98.18%   89.72%
+             parking :   8.82%   64.76%   13.63%   39.35%
+            sidewalk :  68.14%   77.65%   87.74%   72.33%
+        other-ground :   0.00%    0.00%    0.00%    0.62%
+            building :  74.37%   82.91%   89.71%   77.63%
+               fence :   9.69%   64.76%   14.97%   36.57%
+          vegetation :  80.98%   83.40%   97.10%   83.32%
+               trunk :  39.66%   72.33%   54.83%   59.64%
+             terrain :  44.76%   70.04%   63.91%   63.99%
+                pole :  54.46%   71.75%   75.91%   62.01%
+        traffic-sign :  42.90%   74.54%   57.55%   42.66%
+PQ 43.1  PQ_dagger  55.7  SQ 71.9  RQ 52.5  |  PQ_th 38.3  SQ_th 76.7  RQ_th 43.1  |  PQ_st 46.6  SQ_st 68.4  RQ_st 59.4  |  mIoU 50.1
+Current val PQ is 43.1 while the best val PQ is 43.1
+Current val miou is 50.1
+Validation per class iou: 
+car : 0.05%
+bicycle : 4.74%
+motorcycle : 0.00%
+truck : 2.93%
+bus : 0.02%
+person : 1.16%
+bicyclist : 8.35%
+motorcyclist : 0.00%
+road : 0.51%
+parking : 2.50%
+sidewalk : 0.08%
+other-ground : 0.00%
+building : 9.94%
+fence : 0.65%
+vegetation : 0.18%
+trunk : 0.11%
+terrain : 0.02%
+pole : 0.74%
+traffic-sign : 1.37%
+Current val miou is 1.8
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+Validation per class PQ, SQ, RQ and IoU: 
+                 car :  88.07%   93.06%   94.64%   91.31%
+             bicycle :  31.76%   73.95%   42.94%   42.43%
+          motorcycle :  28.08%   88.01%   31.91%   21.42%
+               truck :  47.47%   92.02%   51.59%   61.24%
+                 bus :  23.84%   89.58%   26.61%   25.45%
+              person :  32.30%   86.63%   37.28%   27.29%
+           bicyclist :  56.32%   91.26%   61.72%   53.53%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%
+                road :  89.37%   90.89%   98.33%   90.07%
+             parking :   9.08%   64.64%   14.05%   39.50%
+            sidewalk :  68.46%   77.83%   87.96%   72.60%
+        other-ground :   0.00%    0.00%    0.00%    0.64%
+            building :  74.33%   82.93%   89.63%   77.66%
+               fence :   9.92%   64.40%   15.40%   36.72%
+          vegetation :  80.86%   83.37%   96.98%   83.14%
+               trunk :  40.09%   72.47%   55.32%   59.75%
+             terrain :  44.61%   70.01%   63.72%   63.55%
+                pole :  55.24%   72.13%   76.58%   62.43%
+        traffic-sign :  43.42%   74.54%   58.25%   42.80%
+PQ 43.3  PQ_dagger  55.8  SQ 72.0  RQ 52.8  |  PQ_th 38.5  SQ_th 76.8  RQ_th 43.3  |  PQ_st 46.9  SQ_st 68.5  RQ_st 59.7  |  mIoU 50.1
+Current val PQ is 43.3 while the best val PQ is 43.3
+Current val miou is 50.1
+Validation per class iou: 
+car : 92.91%
+bicycle : 41.48%
+motorcycle : 24.86%
+truck : 47.91%
+bus : 27.81%
+person : 50.22%
+bicyclist : 53.32%
+motorcyclist : 0.00%
+road : 90.11%
+parking : 39.53%
+sidewalk : 72.80%
+other-ground : 0.65%
+building : 80.83%
+fence : 41.21%
+vegetation : 83.91%
+trunk : 65.70%
+terrain : 63.78%
+pole : 66.36%
+traffic-sign : 60.76%
+Current val miou is 52.8
+{'dataset': {'name': 'SemanticKitti', 'version': None, 'path': '/home/data/SemanticKitti', 'rotate_aug': True, 'flip_aug': True, 'max_volume_space': [50, 3.1415926, 3], 'min_volume_space': [0, -3.1415926, -5], 'gt_generator': {'sigma': 5}, 'grid_size': [480, 360, 32], 'inst_aug': {'if_use': True, 'aug_type': 'contmix', 'inst_pkl_path': '/home/data/SemanticKitti/instance_path.pkl', 'inst_trans': True, 'inst_rotate': True, 'inst_flip': True, 'inst_add': True}, 'num_worker': 12, 'min_points': 15}, 'model': {'pix_fusion': True, 'pix_fusion_path': 'checkpoints/resnet18-5c106cde.pth', 'use_sara': True, 'use_att': False, 'use_cont': False, 'model_load_path': 'kitti_ckpts', 'model_save_path': 'kitti_ckpts', 'train_batch_size': 4, 'val_batch_size': 4, 'learning_rate': 0.004, 'LR_MILESTONES': [40, 60, 90], 'LR_GAMMA': 0.5, 'check_iter': 4000, 'max_epoch': 0, 'post_proc': {'threshold': 0.1, 'nms_kernel': 5, 'top_k': 100}, 'center_loss': 'MSE', 'offset_loss': 'L1', 'center_loss_weight': 100, 'offset_loss_weight': 10}}
+epoch: 0   lr: 0.00400
+
+Validation per class PQ, SQ, RQ and IoU: 
+                 car :  90.60%   93.71%   96.68%   93.67%
+             bicycle :  32.83%   76.12%   43.12%   42.25%
+          motorcycle :  48.31%   91.10%   53.04%   56.29%
+               truck :  64.91%   93.61%   69.34%   73.10%
+                 bus :  41.81%   89.64%   46.64%   40.18%
+              person :  55.89%   89.56%   62.40%   55.17%
+           bicyclist :  76.62%   93.07%   82.33%   76.94%
+        motorcyclist :   0.00%    0.00%    0.00%    0.00%
+                road :  92.01%   93.34%   98.58%   92.81%
+             parking :  12.43%   67.75%   18.35%   43.03%
+            sidewalk :  74.91%   81.62%   91.77%   78.06%
+        other-ground :   0.00%    0.00%    0.00%    0.69%
+            building :  87.00%   89.89%   96.78%   89.59%
+               fence :  15.74%   65.41%   24.07%   47.18%
+          vegetation :  83.73%   84.94%   98.58%   85.32%
+               trunk :  46.02%   72.86%   63.16%   65.00%
+             terrain :  48.18%   72.96%   66.04%   67.87%
+                pole :  58.26%   73.86%   78.87%   64.99%
+        traffic-sign :  44.10%   75.32%   58.55%   44.21%
+PQ 51.2  PQ_dagger  62.6  SQ 73.9  RQ 60.4  |  PQ_th 51.4  SQ_th 78.4  RQ_th 56.7  |  PQ_st 51.1  SQ_st 70.7  RQ_st 63.2  |  mIoU 58.8
+Current val PQ is 51.2 while the best val PQ is 51.2
+Current val miou is 58.8
+Validation per class iou: 
+car : 94.97%
+bicycle : 43.28%
+motorcycle : 56.68%
+truck : 50.51%
+bus : 41.64%
+person : 66.84%
+bicyclist : 81.08%
+motorcyclist : 0.00%
+road : 92.84%
+parking : 43.06%
+sidewalk : 78.19%
+other-ground : 0.71%
+building : 90.45%
+fence : 52.99%
+vegetation : 85.66%
+trunk : 66.94%
+terrain : 68.05%
+pole : 67.59%
+traffic-sign : 61.86%
+Current val miou is 60.2
